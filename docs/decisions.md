@@ -48,3 +48,48 @@ Izvor: `docs/research/2026-11-20-zupni-listici.md`, prijedlog
      sekcije su ispod 65 %. Revizija: pilot sa župama.
 107. **Izlaz: A4 jedna/dvije stranice u dva stupca i presavijeni A4 → A5 knjižica.**
      41 od 63 je A4, 19 presavijenih, 2 stupca najčešća. Revizija: pilot.
+
+## R2: identitet, osobni podaci, liturgija, servisi (2026-11-20)
+
+Izvor: `docs/research/2026-11-20-identitet-pravo-servisi.md`. Odluke označene (!)
+su prijedlog dok ih korisnik ne potvrdi (pitanja na vrhu izvještaja i `S1.md`).
+
+200. (!) **Prvi urednik župe potvrđuje se preko službenog kontakta iz biskupijskog
+     adresara.** Kod na e-mail župe iz adresara (bilo koja domena), a gdje e-maila nema,
+     administrator zove broj iz adresara. Administrator ručno upiše URL adresara i datum.
+     Razlog: e-mail na domeni biskupije je pravilo samo u Varaždinskoj (70/72) i
+     Zadarskoj (116/117), a u Đakovačko-osječkoj 94 od 108 e-mailova su besplatni ili ISP.
+     Telefon daju svi obrađeni adresari. Revizija: biskupija pristane slati pozivnice
+     (odluka 202) ili pilot pokaže da administrator ne stiže.
+201. **Uloge po župi: jedan župnik, više urednika.** Župnik odobrava urednike svoje župe
+     (pozivnica ili zahtjev). Novi zahtjev za župu s potvrđenim župnikom ide njemu, a
+     administratoru tek nakon 14 dana bez odgovora ili kad podnositelj tvrdi da je novi
+     župnik. Istodobni prvi zahtjevi rješavaju se pozivom na broj iz adresara. Svaka
+     promjena uloge ide u dnevnik. Objavljeni brojevi ostaju kad se župnik promijeni.
+     Revizija: pilot.
+202. **Pozivnica od biskupije je kasnija nadogradnja, ne preduvjet.** Shema mora
+     dopuštati ulogu „biskupija” koja poziva župnike, ali se ona ne gradi dok neka
+     biskupija ne pristane. Vrata: kontakt s biskupijom (korisnik).
+203. **Odluka 102 se potvrđuje i pooštrava: osobni podaci nikad na webu, u javnom PDF-u
+     ni u API-ju** dok korisnik ne odluči na temelju odgovora HBK-a ili biskupije. Nema
+     prekidača „objavi i ovo” po sekciji. Razlog: HBK pravilo prema čl. 91 GDPR-a,
+     biskupijske smjernice i AZOP mišljenje o listićima nisu nađeni. Crkvena pravila u
+     DE i AT za internet traže privolu. Revizija: odgovor HBK-a ili biskupije.
+204. **Dva PDF-a: tiskani (cijeli, samo za prijavljenog urednika) i javni (bez
+     osjetljivih sekcija).** Osjetljive su: nakane, sakramenti, ženidbeni navještaji,
+     darovatelji s imenom ili iznosom, pokojnici tjedna i skupine s imenima. Na mjestu
+     nakane javno piše najviše „s nakanom”. Tiskani PDF se ne sprema javno (R2 putanja
+     bez javnog URL-a ili generiranje na zahtjev). Revizija: odluka 203.
+205. **Liturgija: odluka 105 vrijedi, uz poveznicu.** Kalendar se računa romcalom (MIT,
+     ima `countries/croatia`) s vlastitim hrvatskim nazivima. Uz navod čitanja ide
+     poveznica na hilp.hr/liturgija-dana ili biblija.ks.hr. Puni tekst unosi urednik.
+     Razlog: uvjeti biblija.ks.hr zabranjuju objavu dijelova u aplikacijama bez pisanog
+     odobrenja, a nositelj prava na lekcionar nije nađen. Revizija: pisano odobrenje
+     KS-a ili HILP-a.
+206. **Kontakti iz adresara se ne scrapaju skupno i ne spremaju kao imenik.** Sprema se
+     samo zapis provjere (kanal, URL izvora, datum, administrator), a kontakt župe
+     tek kad ga urednik sam unese u profil. Telefon i web iz crkve.domovina.ai (Google
+     Places) se ne koriste ni za provjeru. Revizija: biskupija ponudi službeni izvoz.
+207. **Suradnja s postojećim servisima nakon pilota.** sveta-misa.org (izvoz rasporeda),
+     e-zupe.com (widget/JSON), otvorena shema i iCal za ostale. Prije pilota nema
+     vanjskih kontakata. Revizija: korisnik odluči drukčije.
