@@ -76,4 +76,6 @@ predlaže izvor, a navod je ručni unos do odluke.
 
 ## Gdje smo
 
-S1 gotov (d0d60a5): kostur, uvoz 1561 župe, `/zupa/<slug>`. Sljedeće: S2.
+S1 gotov (d0d60a5): kostur, uvoz 1561 župe, `/zupa/<slug>`.
+S2 gotov (1080285): migracija listića, zod validacija, generator tjednih misa, javni
+raspored bez nakana; 81 test. Sljedeće: S3.

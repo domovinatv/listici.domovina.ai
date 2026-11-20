@@ -29,10 +29,11 @@ Legenda: `[x]` gotovo · `[ ]` otvoreno · `[~]` u radu · `(!)` traži korisnik
 - [x] migracija `zupe` (slug, OIB, SBT_ID, naziv, biskupija, mjesto, koordinate iz crkve osim Google Placesa) → S1
 - [x] uvoz iz `zupe-index.json` + `zupa/<slug>.json`, idempotentan, bilježi promijenjene i nestale slugove → S1
 - [x] prijaviti crkve lancu: Vugrovec, Vinjani, Vidici nisu u indeksu; slug Starog Pazina i Duge Rese → S1 (`docs/2026-11-20-biljeska-za-crkve.md`)
-- [ ] migracije profila župe, crkava, stalnog rasporeda, broja, sekcija, misa → S2
-- [ ] validacija po JSON shemi iz `docs/research/2026-11-20-obrazac-listica.md` → S2
-- [ ] tjedne mise iz stalnog rasporeda + iznimke („nema mise”, promjena s datumom) → S2
-- [ ] normalizacija sati („8,00”, „18:30h”, „8 i 10”) → S2
+- [x] migracije profila župe, crkava, stalnog rasporeda, broja, sekcija, misa → S2
+- [x] validacija po JSON shemi iz `docs/research/2026-11-20-obrazac-listica.md` → S2
+- [x] tjedne mise iz stalnog rasporeda + iznimke („nema mise”, promjena s datumom) → S2
+- [x] normalizacija sati („8,00”, „18:30h”, „8 i 10”) → S2
+- [ ] `jeBlagdan(datum)` za generator tjednih misa (odluka 405) → S3
 - [ ] liturgijski kalendar: romcal `countries/croatia` + hrvatski nazivi → S3
 - [ ] navod čitanja: izmjeriti daje li ga romcal; inače prijedlog izvora → S3
 
@@ -44,7 +45,7 @@ Legenda: `[x]` gotovo · `[ ]` otvoreno · `[~]` u radu · `(!)` traži korisnik
 - [ ] pozivnice župnika, dnevnik promjena uloga → S4
 - [ ] uređivač profila župe: crkve, stalni raspored, kontakt, uredovno vrijeme, IBAN, stalni blokovi → S5
 - [ ] uređivač broja: liturgija, tjedne mise, obavijesti, razmatranje, događaji, slobodni blokovi → S6
-- [ ] osjetljivi blokovi (odluka 204) i upozorenje kad javni tekst sadrži ime → S6
+- [ ] osjetljivi blokovi (odluka 204) i upozorenje kad javni tekst sadrži ime (i napomena mise, jer je javna) → S6
 
 ## F2 — izlaz
 

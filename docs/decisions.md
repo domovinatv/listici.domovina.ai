@@ -154,3 +154,55 @@ Pitanja s vrha `S1.md`; odgovori u S1 sesiji.
 307. **Pretraga: stupac `trazi` (naziv, titular, mjesto; mala slova bez dijakritika) i
      `LIKE` po riječima.** Dovoljno za 1561 redak. Revizija: FTS5 kad pretraga dobije
      listiće ili crkve.
+
+## S2: model listića i rasporeda (2026-11-20)
+
+Kod: `migrations/0002_listici.sql`, `src/lib/{raspored-shema,listic-shema,tjedne-mise,sati,listici,javni-raspored,datum}.ts`.
+Obrazac nije imao JSON primjer; izmišljen primjer je dodan u
+`docs/research/2026-11-20-obrazac-listica.md` (`### Primjer`), a test ga čita iz markdowna.
+
+400. **`listic_crkve.crkva_izvor_slug` je meka veza, bez REFERENCES.** Uvoz briše i
+     ponovo upisuje crkve promijenjene župe (302), pa bi strani ključ zaustavio uvoz ili
+     uz SET NULL gubio vezu. Postojanje crkve i njena župa provjeravaju se pri spremanju.
+     Revizija: crkve uvede stabilne slugove crkava ili tablicu preimenovanja.
+401. **Nakane su u zasebnoj tablici `mise_nakane` (ON DELETE CASCADE), a `objava =
+     'papir_i_web'` odbijaju zod (poruka navodi 203) i CHECK u bazi.** Javni modul
+     `javni-raspored.ts` ne spominje nakane; test to provjerava nad rezultatom, izvršenim
+     SQL-om i izvornim kodom. Revizija: odluka 203.
+402. **Uvijek osjetljive sekcije: `sakramenti` (uključuje ženidbene navještaje) i
+     `pokojnici`**, provjera u zodu i CHECK-om u bazi. Darove i zajednice osjetljivima
+     označava urednik kad nose imena ili iznose. Kanonski popis: 16 tipova iz tablice
+     sekcija obrasca. Revizija: S5/S6, treba li zaseban tip za navještaje.
+403. **Validacija: zod 4 sa `strictObject`** (nepoznato polje je greška, da se tipfeler ne
+     izgubi tiho). Vjerno JSON shemi, uz dodatke: `ostali_termini.sat` HH:MM, ista misa
+     (datum, sat, crkva) samo jednom, `crkve[].zupa_slug` mora biti glavna ili dodatna
+     župa, `do_sata` nakon `sat`, mise unutar razdoblja. Revizija: objava sheme vanjskim
+     servisima (207).
+404. **Granice sezona (zimsko/ljetno) su u profilu listića (`listici.sezone`).** Pravilo
+     sa sezonom bez granica je greška u generatoru i pri spremanju; javni upit ga
+     preskače. Revizija: izvoz za vanjske servise (207).
+405. **Generator tjednih misa:** blagdan (`jeBlagdan`, iz S3) zamjenjuje redovni dan za
+     crkve s blagdanskim pravilom; bez `jeBlagdan` blagdanska pravila ne daju misu;
+     `tjedni_u_mjesecu` samo za dane u tjednu; isti dan, sat i crkva daju jednu misu.
+     Razlika stvarno ↔ stalno: premještaj je isti dan i sat u drugoj crkvi ili ista crkva
+     i dan s najbližim satom; premještaj na drugi dan je izostavljena + dodana; kao
+     promjena se prate vrsta i jezik, ne napomena. Revizija: S5, nakon sučelja za unos.
+406. **Normalizacija sati:** tekst bez broja → `[]`; nemoguć sat (`25:00`, `8:75`, `830`)
+     baca `NeispravanSat`; redni broj (`3.`) se preskače. Tiho ispuštanje bi izgubilo
+     misu. Revizija: uvoz iz slobodnog teksta.
+407. **Javni raspored:** samo listići s bar jednim objavljenim brojem; mise po crkvama
+     župe (`listic_crkve.zupa_slug`); dani pod objavljenim brojem s tjednim misama →
+     te mise (`potvrdeno: true`), ostali dani i broj „samo stalni raspored” → izračun iz
+     stalnog (`potvrdeno: false`); nacrti nikad; upit najviše 92 dana; objavljeni brojevi
+     istog listića se ne preklapaju. Revizija: S6/S8.
+408. **Objava broja (106) traži stalni raspored ili tjedne mise te telefon ili e-mail u
+     profilu.** Broj bez misa (oblik 5) smije biti nacrt. Revizija: pilot.
+409. **Spremanje broja je jedan D1 batch** (retci kao JSON kroz `json_each`, ~17 naredbi
+     neovisno o broju misa); ponovno spremanje zamjenjuje broj; crkva koja nestane iz
+     dokumenta briše se samo ako je ništa ne koristi. Stupci razdoblja su `datum_od` i
+     `datum_do` (`do` je ključna riječ SQL-a). Revizija: S9, ograničenja D1 na računu.
+
+Otvoreno iz S2: napomena mise je javna (103), pa uređivač (S6) mora upozoriti na ime u
+njoj; ostali termini i stalni blokovi još nisu u javnom upitu (S8); nestanak crkve iz
+izvora ili `novi_slug` župe dok je listić na starom se ne prati; dva listića za istu
+župu se u javnom upitu samo zbroje; rotacija „svake druge nedjelje” se ne modelira.

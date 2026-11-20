@@ -24,7 +24,7 @@ handoffe razvojnih sesija S1…S10 u ovaj direktorij.
 | R1 | Kako župni listići izgledaju: zbirka i analiza | gotovo | 44098a3 | | 71 listić, 15 biskupija; odluke 100–107 |
 | R2 (S0) | Identitet, pravno, servisi → `/todo-plan` | gotovo | 19c0ecc | | odluke 200–207; plan S1–S10 |
 | S1 | Kostur + `npm run check` + uvoz župa | gotovo | d0d60a5 | 12 | 1561 župa u lokalnoj D1, odluke 300–307 |
-| S2 | Model listića i rasporeda | otvoreno | | | |
+| S2 | Model listića i rasporeda | gotovo | 1080285 | 81 | zod 4, nakane u `mise_nakane`, odluke 400–409 |
 | S3 | Liturgijski kalendar | otvoreno | | | |
 | S4 | Identitet i uloge | otvoreno | | | 200 potvrđena; administrator još TBD |
 | S5 | Uređivač profila župe | otvoreno | | | |
