@@ -1,0 +1,24 @@
+---
+// Minimalni okvir stranice. Tema, znak i ikone dolaze kasnije (omm Tema.astro je uzor).
+interface Props {
+  naslov: string;
+}
+const { naslov } = Astro.props;
+---
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{naslov} · Župni listići</title>
+    <style is:global>
+      body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 0 auto; padding: 1rem; line-height: 1.5; }
+      input[type="search"] { width: 100%; max-width: 24rem; }
+    </style>
+  </head>
+  <body>
+    <header><a href="/">Župni listići</a></header>
+    <main><slot /></main>
+    <footer><small>Podaci o župama: <a href="https://crkve.domovina.ai">crkve.domovina.ai</a></small></footer>
+  </body>
+</html>

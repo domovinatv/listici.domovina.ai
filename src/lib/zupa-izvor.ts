@@ -126,5 +126,6 @@ export async function izZupeJson(j: unknown): Promise<ZupaIzvor | null> {
 /** Naslov za prikaz: „Župa sv. Nikole Biskupa, Jastrebarsko”. */
 export function naslov(z: { name: string; short_name: string | null; city: string | null; kind: string }): string {
   const ime = z.kind === "zupa" && z.short_name ? `Župa ${z.short_name}` : (z.short_name ?? z.name);
-  return z.city ? `${ime}, ${z.city}` : ime;
+  // Neki short_name već završava mjestom („Preobraženja Gospodnjega, Jastrebarsko”).
+  return z.city && !normaliziraj(ime).endsWith(normaliziraj(z.city)) ? `${ime}, ${z.city}` : ime;
 }

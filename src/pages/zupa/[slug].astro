@@ -1,0 +1,37 @@
+---
+// Profil župe iz uvoza (bez kontakata: telefon i web u crkve su iz Google Placesa, odluka 3).
+import { env } from "cloudflare:workers";
+import Osnova from "../../layouts/Osnova.astro";
+import { zupa } from "../../lib/zupe.ts";
+import { naslov } from "../../lib/zupa-izvor.ts";
+
+const slug = Astro.params.slug ?? "";
+const nadeno = await zupa(env.DB, slug);
+if (nadeno?.zupa.novi_slug) return Astro.redirect(`/zupa/${nadeno.zupa.novi_slug}`, 301);
+if (!nadeno || nadeno.zupa.nestalo_u) Astro.response.status = 404;
+const z = nadeno && !nadeno.zupa.nestalo_u ? nadeno : null;
+---
+{z ? (
+  <Osnova naslov={naslov(z.zupa)}>
+    <h1>{naslov(z.zupa)}</h1>
+    <dl>
+      <dt>Službeni naziv</dt><dd>{z.zupa.name}</dd>
+      {z.zupa.titular && (<><dt>Titular</dt><dd>{z.zupa.titular}</dd></>)}
+      {z.zupa.diocese && (<><dt>Biskupija</dt><dd>{z.zupa.diocese}</dd></>)}
+      {z.zupa.city && (<><dt>Mjesto</dt><dd>{[z.zupa.address, z.zupa.city].filter(Boolean).join(", ")}</dd></>)}
+    </dl>
+    <h2>Crkve</h2>
+    {z.crkve.length === 0 ? <p>Izvor ne navodi crkve ove župe.</p> : (
+      <ul>
+        {z.crkve.map((c) => (
+          <li>{c.name}{c.city && `, ${c.city}`}{c.is_parish_church ? " (župna crkva)" : ""}</li>
+        ))}
+      </ul>
+    )}
+  </Osnova>
+) : (
+  <Osnova naslov="Župa nije pronađena">
+    <h1>Župa nije pronađena</h1>
+    <p>Nema župe s adresom <code>/zupa/{slug}</code>. <a href="/">Pretraga župa</a></p>
+  </Osnova>
+)}

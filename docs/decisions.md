@@ -93,3 +93,51 @@ su prijedlog dok ih korisnik ne potvrdi (pitanja na vrhu izvještaja i `S1.md`).
 207. **Suradnja s postojećim servisima nakon pilota.** sveta-misa.org (izvoz rasporeda),
      e-zupe.com (widget/JSON), otvorena shema i iCal za ostale. Prije pilota nema
      vanjskih kontakata. Revizija: korisnik odluči drukčije.
+
+## S1: kostur i uvoz župa (2026-11-20)
+
+300. **Kostur po omm, uz tri razlike.** `workers_dev: true` i bez `routes` (domena je S9);
+     `session: false` i `imageService: "passthrough"` u `astro.config.mjs`, jer bi adapter
+     inače dodao vezove `SESSION` (KV) i `IMAGES` i pri deployu ih sam stvorio, a ništa ih
+     ne koristi; TypeScript 6 umjesto 7 iz omm-a, jer `@astrojs/check` 0.9.12 traži
+     `typescript ^5 || ^6`. Revizija: `@astrojs/check` podrži TS 7.
+301. **Privremeni `database_id` `00000000-0000-0000-0000-000000000000`.** D1 na računu ne
+     postoji; S1 radi samo `--local`. S9 ga zamjenjuje ID-om iz `wrangler d1 create`.
+302. **Crkve u tablici `crkve_izvor`, ne u JSON stupcu.** Raspored misa veže misu uz crkvu
+     (odluka 104), pa crkva treba ključ (slug crkve iz crkve.domovina.ai). Pri promjeni
+     župe njene crkve se brišu i upisuju ponovo; `INSERT OR REPLACE` premješta crkvu koja
+     prijeđe u drugu župu. Revizija: crkve promijeni slugove crkava.
+303. **Polja po popisu dopuštenih, ne po popisu zabranjenih** (`src/lib/zupa-izvor.ts`).
+     Ne preuzimaju se `phone`, `website`, `email`, `google_maps_uri`, `source` ni ijedno
+     novo polje dok ga netko ne doda. Koordinate župe samo kad je `geocode_source` u
+     {`church`, `naselje-centroid`, `nominatim`, `dgu`}; `places` i nepoznat izvor → NULL.
+     Koordinate crkava se preuzimaju: u crkve su iz OSM-a/Wikidate, a Places ih samo
+     potvrđuje (`geo_verified`, ne izvozi se; crkve `scripts/13_places_parishes.py`).
+     Revizija: crkve uvede novi izvor koordinata.
+304. **Promjena = hash, nestanak = indeks, preimenovanje = OIB pa SBT_ID.** `izvor_hash` je
+     SHA-256 preuzetih polja i crkava, pa promjena telefona u crkve nije promjena ovdje.
+     Slug koji nije u indeksu dobiva `nestalo_u` (red ostaje); neuspio dohvat detalja nije
+     nestanak. Novi slug s istim OIB-om, a bez OIB-a s istim `registry_id`, upisuje se u
+     `zupe.novi_slug` i `zupe_preimenovanja`, a `/zupa/<stari>` vraća 301 na novi. Slug
+     koji se vrati briše `nestalo_u`. Uvoz staje ako indeks ima manje od 50 % aktivnih
+     župa. Revizija: crkve uvede vlastitu tablicu preimenovanja.
+305. **Testovi nad `node:sqlite`, ne `@cloudflare/vitest-pool-workers` ni better-sqlite3.**
+     Ugrađen je u Node 24, nema nativnog builda ni workerd-a, a izvršava iste
+     `migrations/*.sql`; logika prima sučelje `Baza` (podskup D1, `src/lib/baza.ts`).
+     Revizija: kad treba testirati same rute Workera.
+306. **Uvoz je skripta (`npm run uvoz:zupe` = `node scripts/uvoz-zupa.ts`) nad lokalnom D1
+     preko `getPlatformProxy`**, s paralelom 4 i tri pokušaja po URL-u. Isti
+     `uveziZupe()` kasnije zove `scheduled` kad baza bude na računu (S9). Prvi stvarni
+     uvoz 2026-11-20 (indeks u 18:54 UTC: `count` 2358, `kind == "zupa"` 1561, naredba
+     `curl -s https://crkve.domovina.ai/data/zupe-index.json | python3 …`):
+     - 1. uvoz: 1561 novih, 0 grešaka, 32,5 s; 2. uvoz: 0 promjena, 11,0 s.
+     - `npx wrangler d1 execute listici-domovina-ai --local --command "SELECT count(*) FROM zupe"`
+       → 1561; `crkve_izvor` 2780; bez OIB-a 626.
+     - `geocode_source`: `church` 1078 (s koordinatom), `places` 456 (lat/lng NULL),
+       `naselje-centroid` 26, bez izvora 1 (NULL).
+     - `SELECT count(*) FROM pragma_table_info('zupe') WHERE name LIKE '%phone%' OR … '%web%'
+       OR … '%mail%' OR … '%google%'` → 0; nijedan tekstni stupac `zupe`/`crkve_izvor` ne
+       sadrži `http` → 0.
+307. **Pretraga: stupac `trazi` (naziv, titular, mjesto; mala slova bez dijakritika) i
+     `LIKE` po riječima.** Dovoljno za 1561 redak. Revizija: FTS5 kad pretraga dobije
+     listiće ili crkve.

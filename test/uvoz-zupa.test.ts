@@ -87,6 +87,9 @@ describe("izZupeJson", () => {
     expect(naslov({ name: "ŽUPA SV. PETRA", short_name: "sv. Petra", city: "Lučko Selo", kind: "zupa" })).toBe(
       "Župa sv. Petra, Lučko Selo",
     );
+    expect(naslov({ name: "ŽUPA X", short_name: "Preobraženja, Lučko Selo", city: "Lučko Selo", kind: "zupa" })).toBe(
+      "Župa Preobraženja, Lučko Selo",
+    );
   });
 });
 

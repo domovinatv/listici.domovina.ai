@@ -1,0 +1,27 @@
+---
+import { env } from "cloudflare:workers";
+import Osnova from "../layouts/Osnova.astro";
+import { trazi } from "../lib/zupe.ts";
+import { naslov } from "../lib/zupa-izvor.ts";
+
+const q = (Astro.url.searchParams.get("q") ?? "").slice(0, 100);
+const rezultati = q.trim() ? await trazi(env.DB, q) : [];
+---
+<Osnova naslov="Pretraga župa">
+  <h1>Župni listići</h1>
+  <form method="get" action="/">
+    <label for="q">Župa ili mjesto</label><br />
+    <input id="q" name="q" type="search" value={q} />
+    <button type="submit">Traži</button>
+  </form>
+  {q.trim() && (
+    <section>
+      <p>{rezultati.length === 0 ? "Nema župe za taj upit." : `Pronađeno: ${rezultati.length}${rezultati.length === 50 ? " (prvih 50)" : ""}`}</p>
+      <ul>
+        {rezultati.map((z) => (
+          <li><a href={`/zupa/${z.slug}`}>{naslov(z)}</a>{z.diocese && <small> · {z.diocese}</small>}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Osnova>
