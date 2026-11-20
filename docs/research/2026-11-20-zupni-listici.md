@@ -15,7 +15,7 @@ radni dani nisu. Osobni podaci su u većini listića, i to ne samo u nakanama.
   2026-11-20 (`count` 2358 ustanova, od toga 1561 `kind == "zupa"` u 16 biskupija i
   eparhija; Vojni ordinarijat u indeksu nije). Telefon i web iz tog izvora nisu korišteni.
 - **Pronalazak:** 25 pretraga (Firecrawl search, 10 rezultata) po biskupiji i gradu,
-  nekoliko dopunskih kroz WebSearch; 241 URL. Upiti: `data/raw/queries.tsv` (gitignoran).
+  nekoliko dopunskih kroz WebSearch; 241 URL. Upiti: `docs/research/r1-metoda/queries.tsv`; upute agentima u `docs/research/r1-metoda/`.
 - **Zbirka:** 3 agenta (Sonnet 5.5) po regijama dohvatili su listiće curlom s javnih
   stranica župa, biskupija i e-zupe.com. Bez preglednika i bez Facebooka/Instagrama.
   Datoteke, `index.csv` i bilješke su u `data/uzorci/` (gitignorano, ne objavljuje se).
@@ -103,7 +103,7 @@ od nedjelje do nedjelje. Za blagdane (Božić, Uskrs) izlazi dvobroj ili veći b
 
 ## Sekcije
 
-Kanonski tipovi (definicija u `data/raw/brief-analiza.md`), udio listića u kojima se
+Kanonski tipovi (definicija u `docs/research/r1-metoda/brief-analiza.md`), udio listića u kojima se
 sekcija pojavljuje (n = 63):
 
 | Sekcija | Listića | Udio | Osobni podaci |
