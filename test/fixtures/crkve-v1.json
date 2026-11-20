@@ -1,0 +1,78 @@
+{
+  "_opis": "Izmišljene župe u obliku crkve.domovina.ai/data (stanje 2026-11-20). Mjesta, OIB-i i brojevi nisu stvarni.",
+  "index": {
+    "count": 9,
+    "items": [
+      { "slug": "sv-ivana-krstitelja-gornje-polje-1111", "name": "ŽUPA SV. IVANA KRSTITELJA", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-marka-donje-polje-2222", "name": "ŽUPA SV. MARKA", "kind": "zupa", "route": "zupa" },
+      { "slug": "bl-djevice-marije-pusti-brdovec-702001", "name": "ŽUPA BL. DJEVICE MARIJE", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-petra-lucko-selo-3333", "name": "ŽUPA SV. PETRA", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-ane-kamenica-4444", "name": "ŽUPA SV. ANE", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-lovre-stara-mlaka-5555", "name": "ŽUPA SV. LOVRE", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-roka-zabrdje-702002", "name": "ŽUPA SV. ROKA", "kind": "zupa", "route": "zupa" },
+      { "slug": "sv-mihovila-ravnica-6666", "name": "ŽUPA SV. MIHOVILA", "kind": "zupa", "route": "zupa" },
+      { "slug": "samostan-sv-klare-gornje-polje-702900", "name": "SAMOSTAN SV. KLARE", "kind": "samostan", "route": "ustanova" }
+    ]
+  },
+  "zupe": {
+    "sv-ivana-krstitelja-gornje-polje-1111": {
+      "slug": "sv-ivana-krstitelja-gornje-polje-1111", "name": "ŽUPA SV. IVANA KRSTITELJA", "short_name": "sv. Ivana Krstitelja",
+      "kind": "zupa", "religion": "christian", "denomination": "roman_catholic", "titular": "sv. Ivan Krstitelj",
+      "oib": "00000001111", "diocese": "Izmišljena Nadbiskupija", "address": "Trg 1", "city": "Gornje Polje", "county": "Izmišljena",
+      "lat": 45.1, "lng": 15.1, "geocode_source": "church", "registry_no": "1.001", "registry_id": 700001,
+      "registry_status": "AKTIVAN", "registered_at": "2000-01-01", "leader_title": "Župnik ili upravitelj župe",
+      "phone": "099 000 1111", "email": "zupa@primjer.invalid", "website": "http://zupa-gornje-polje.invalid/",
+      "google_maps_uri": "https://maps.google.com/?cid=1", "source": ["datagovhr:katolicke-pravne-osobe", "places"], "route": "zupa",
+      "churches": [
+        { "slug": "sv-ivana-krstitelja-gornje-polje-w1", "name": "crkva sv. Ivana Krstitelja", "kind": "crkva", "heritage_id": "Z-0001",
+          "lat": 45.1, "lng": 15.1, "is_parish_church": 1, "image": 1, "phone": "099 000 9999", "website": "http://crkva.invalid/" },
+        { "slug": "kapela-sv-florijana-gornje-polje-n2", "name": "kapela sv. Florijana", "kind": "kapela", "city": "Gornje Polje", "lat": 45.11, "lng": 15.12 }
+      ],
+      "church_count": 2, "has_parish_church": 1
+    },
+    "sv-marka-donje-polje-2222": {
+      "slug": "sv-marka-donje-polje-2222", "name": "ŽUPA SV. MARKA", "short_name": "sv. Marka", "kind": "zupa", "titular": "sv. Marko",
+      "oib": "00000002222", "diocese": "Izmišljena Nadbiskupija", "address": "Ulica 2", "city": "Donje Polje", "county": "Izmišljena",
+      "lat": 45.2, "lng": 15.2, "geocode_source": "places", "registry_id": 700002, "phone": "099 000 2222",
+      "google_maps_uri": "https://maps.google.com/?cid=2", "source": ["datagovhr:katolicke-pravne-osobe", "places"], "route": "zupa",
+      "churches": [], "church_count": 0, "has_parish_church": 0
+    },
+    "bl-djevice-marije-pusti-brdovec-702001": {
+      "slug": "bl-djevice-marije-pusti-brdovec-702001", "name": "ŽUPA BL. DJEVICE MARIJE", "short_name": "Bl. Djevice Marije", "kind": "zupa",
+      "titular": "Bl. Djevica Marija", "diocese": "Izmišljena Biskupija", "address": "Pusti 3", "city": "Pušti Brdovec", "county": "Izmišljena",
+      "lat": 45.3, "lng": 15.3, "geocode_source": "naselje-centroid", "registry_id": 702001, "route": "zupa",
+      "churches": [ { "slug": "bdm-pusti-w3", "name": "crkva Bl. Djevice Marije", "kind": "crkva", "lat": 45.3, "lng": 15.3, "is_parish_church": 1 } ],
+      "church_count": 1, "has_parish_church": 1
+    },
+    "sv-petra-lucko-selo-3333": {
+      "slug": "sv-petra-lucko-selo-3333", "name": "ŽUPA SV. PETRA", "short_name": "sv. Petra", "kind": "zupa", "titular": "sv. Petar",
+      "oib": "00000003333", "diocese": "Izmišljena Biskupija", "address": "Selo 4", "city": "Lučko Selo", "county": "Izmišljena",
+      "lat": 45.4, "lng": 15.4, "geocode_source": "nominatim", "registry_id": 700003, "website": "https://sv-petar.invalid/", "route": "zupa",
+      "churches": [], "church_count": 0, "has_parish_church": 0
+    },
+    "sv-ane-kamenica-4444": {
+      "slug": "sv-ane-kamenica-4444", "name": "ŽUPA SV. ANE", "short_name": "sv. Ane", "kind": "zupa", "titular": "sv. Ana",
+      "oib": "00000004444", "diocese": "Izmišljena Biskupija", "city": "Kamenica", "county": "Izmišljena", "registry_id": 700004, "route": "zupa",
+      "churches": [ { "slug": "sv-ane-kamenica-w4", "name": "crkva sv. Ane", "kind": "crkva", "lat": 45.5, "lng": 15.5, "is_parish_church": 1 } ],
+      "church_count": 1, "has_parish_church": 1
+    },
+    "sv-lovre-stara-mlaka-5555": {
+      "slug": "sv-lovre-stara-mlaka-5555", "name": "ŽUPA SV. LOVRE", "short_name": "sv. Lovre", "kind": "zupa", "titular": "sv. Lovro",
+      "oib": "00000005555", "diocese": "Izmišljena Nadbiskupija", "city": "Stara Mlaka", "county": "Izmišljena",
+      "lat": 45.6, "lng": 15.6, "geocode_source": "church", "registry_id": 700005, "route": "zupa",
+      "churches": [ { "slug": "sv-lovre-stara-mlaka-w5", "name": "crkva sv. Lovre", "kind": "crkva", "lat": 45.6, "lng": 15.6, "is_parish_church": 1 } ],
+      "church_count": 1, "has_parish_church": 1
+    },
+    "sv-roka-zabrdje-702002": {
+      "slug": "sv-roka-zabrdje-702002", "name": "ŽUPA SV. ROKA", "short_name": "sv. Roka", "kind": "zupa", "titular": "sv. Roko",
+      "diocese": "Izmišljena Biskupija", "city": "Zabrđe", "county": "Izmišljena", "registry_id": 702002, "route": "zupa",
+      "churches": [], "church_count": 0, "has_parish_church": 0
+    },
+    "sv-mihovila-ravnica-6666": {
+      "slug": "sv-mihovila-ravnica-6666", "name": "ŽUPA SV. MIHOVILA", "short_name": "sv. Mihovila", "kind": "zupa", "titular": "sv. Mihovil",
+      "oib": "00000006666", "diocese": "Izmišljena Biskupija", "city": "Ravnica", "county": "Izmišljena",
+      "lat": 45.7, "lng": 15.7, "registry_id": 700006, "phone": "099 000 6666", "route": "zupa",
+      "churches": [], "church_count": 0, "has_parish_church": 0
+    }
+  }
+}
