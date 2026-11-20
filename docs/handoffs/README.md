@@ -16,7 +16,7 @@ napiše `TODO.md`, `docs/plan.md` i handoffe razvojnih sesija S1…SN u ovaj dir
 | Sesija | Paket | Stanje | Commit | Napomena |
 | --- | --- | --- | --- | --- |
 | R0 | Inicijalizacija repoa + baza znanja | gotovo | 621f5c4 | napravljeno iz sesije u crkve.domovina.ai |
-| R1 | Kako župni listići izgledaju: zbirka i analiza | gotovo | (ovaj commit) | 71 listić, 15 biskupija; odluke 100–107 |
+| R1 | Kako župni listići izgledaju: zbirka i analiza | gotovo | 44098a3 | 71 listić, 15 biskupija; odluke 100–107 |
 | R2 | Identitet urednika, pravno, postojeći servisi → `/todo-plan` | otvoreno | | |
 
 ## Zajednička pravila
