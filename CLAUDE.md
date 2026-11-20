@@ -9,14 +9,17 @@ standardiziranom obrascu, preuzme kao PDF za tisak i automatski objavi na webu.
 župu u Hrvatskoj. Besplatno za župe, 100 % open source (MIT), kao i ostali
 `*.domovina.ai` projekti.
 
-**Stanje (2026-11-20): istraživanje, koda nema.** Polazište, odluke i otvorena
-pitanja su u `docs/2026-11-20-polaziste.md`. R1 (kako listići izgledaju) je gotov:
-`docs/research/2026-11-20-zupni-listici.md` i prijedlog obrasca s JSON shemom rasporeda
-misa `docs/research/2026-11-20-obrazac-listica.md`. Sljedeće je R2 pa `/todo-plan`.
+**Stanje (2026-11-20): istraživanje gotovo, koda nema.** Polazište je u
+`docs/2026-11-20-polaziste.md`. R1 (kako listići izgledaju) je u
+`docs/research/2026-11-20-zupni-listici.md` i `docs/research/2026-11-20-obrazac-listica.md`,
+a R2 (identitet urednika, osobni podaci, liturgija, postojeći servisi) u
+`docs/research/2026-11-20-identitet-pravo-servisi.md`. Plan je lanac S1–S10:
+`docs/plan.md`, `TODO.md`, `docs/handoffs/`.
 
 ## Lanac
 `docs/handoffs/README.md`: „nastavi listiće” (ili „nastavi zadnji handoff”) znači
-prvi otvoreni red u tablici „Stanje lanca”, pa njegov handoff.
+prvi otvoreni red u tablici „Stanje lanca”, pa njegov handoff. Vrata (identitet
+prije S4, deploy S9, pilot S10) su u `docs/plan.md`.
 
 ## Stack (odluka, ne prijedlog)
 Astro SSR + `@astrojs/cloudflare` → **Cloudflare Worker**, **D1**, po potrebi R2
