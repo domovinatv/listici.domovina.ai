@@ -1,0 +1,29 @@
+{
+  "name": "listici-domovina-ai",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "listici.domovina.ai — župni listići: obrazac, PDF za tisak i objava na webu",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "dev:worker": "npm run build && wrangler dev --local",
+    "check": "astro check && vitest run",
+    "test": "vitest run",
+    "db:migrate:local": "wrangler d1 migrations apply listici-domovina-ai --local",
+    "uvoz:zupe": "node scripts/uvoz-zupa.ts",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.3.4",
+    "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^24.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.1",
+    "wrangler": "^4.149.0"
+  }
+}
