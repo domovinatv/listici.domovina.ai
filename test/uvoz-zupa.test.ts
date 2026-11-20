@@ -188,7 +188,9 @@ describe("uveziZupe", () => {
     const tablice = (db.sirovo.prepare("SELECT name FROM sqlite_master WHERE type = 'table'").all() as { name: string }[]).map(
       (t) => t.name,
     );
-    for (const t of tablice) {
+    // Iznimka: kontakt u profilu listića unosi urednik sam (odluka 206); uvoz ga ne puni.
+    expect(db.sirovo.prepare("SELECT count(*) AS n FROM listici").get()).toEqual({ n: 0 });
+    for (const t of tablice.filter((t) => t !== "listici")) {
       const stupci = (db.sirovo.prepare(`PRAGMA table_info(${t})`).all() as { name: string }[]).map((s) => s.name);
       expect(stupci.filter((s) => /phone|telefon|website|web|email|mail|google|maps/i.test(s))).toEqual([]);
       for (const red of db.sirovo.prepare(`SELECT * FROM ${t}`).all()) {

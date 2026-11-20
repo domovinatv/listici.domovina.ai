@@ -188,6 +188,82 @@ Napomene uz shemu:
   a gdje tjednog nema, izračun iz `stalni`, s oznakom „stalni raspored, nije potvrđen
   za ovaj tjedan”.
 
+### Primjer
+
+Izmišljen listić (župe, crkve i nakane ne postoje) koji pokazuje većinu sheme: dvije
+župe na jednom listiću, tri crkve od kojih je jedna filijala s `tjedni_u_mjesecu`,
+zimski i ljetni raspored (granice sezona su u profilu listića, ne u ovom dokumentu),
+misa na albanskom, otkazana i premještena misa, dodatna misa, nakane raznih vrsta i
+pobožnosti bez mise. Test `test/raspored-shema.test.ts` ovaj blok čita iz dokumenta i
+validira ga, pa dokument i kod ne mogu razići.
+
+```json
+{
+  "zupa": {
+    "slug": "sv-bartola-apostola-ravno-polje-9001",
+    "dodatne_zupe": ["sv-luke-evandjelista-malo-brdo-9002"]
+  },
+  "crkve": [
+    {"id": "bartol", "crkve_ref": "sv-bartola-apostola-ravno-polje-w9001",
+     "naziv": "crkva sv. Bartola apostola", "mjesto": "Ravno Polje",
+     "zupa_slug": "sv-bartola-apostola-ravno-polje-9001", "uloga": "zupna"},
+    {"id": "luka", "crkve_ref": "sv-luke-evandjelista-malo-brdo-w9002",
+     "naziv": "crkva sv. Luke evanđelista", "mjesto": "Malo Brdo",
+     "zupa_slug": "sv-luke-evandjelista-malo-brdo-9002", "uloga": "zupna"},
+    {"id": "rok", "crkve_ref": null, "naziv": "kapela sv. Roka", "mjesto": "Gornji Kraj",
+     "zupa_slug": "sv-bartola-apostola-ravno-polje-9001", "uloga": "filijala"}
+  ],
+  "stalni": [
+    {"crkva": "bartol", "dani": ["pon", "uto", "sri", "cet", "pet"], "sat": "18:00", "sezona": "zimsko"},
+    {"crkva": "bartol", "dani": ["pon", "uto", "sri", "cet", "pet"], "sat": "19:00", "sezona": "ljetno"},
+    {"crkva": "bartol", "dani": ["sub"], "sat": "08:00"},
+    {"crkva": "bartol", "dani": ["ned"], "sat": "08:00", "vrsta": "nedjeljna"},
+    {"crkva": "bartol", "dani": ["ned"], "sat": "10:30", "vrsta": "nedjeljna"},
+    {"crkva": "bartol", "dani": ["blagdan"], "sat": "10:30", "vrsta": "blagdanska"},
+    {"crkva": "luka", "dani": ["ned", "blagdan"], "sat": "09:00", "vrsta": "nedjeljna"},
+    {"crkva": "luka", "dani": ["ned"], "sat": "15:00", "vrsta": "nedjeljna", "jezik": "sq",
+     "tjedni_u_mjesecu": [4], "napomena": "misa na albanskom jeziku"},
+    {"crkva": "rok", "dani": ["ned"], "sat": "11:30", "vrsta": "nedjeljna", "tjedni_u_mjesecu": [1, 3]}
+  ],
+  "tjedni": {
+    "od": "2026-11-16",
+    "do": "2026-11-22",
+    "mise": [
+      {"datum": "2026-11-16", "sat": "18:00", "crkva": "bartol", "iz_stalnog": true,
+       "nakana": {"tekst": "za pokojne iz Lipove ulice", "vrsta": "skupna", "objava": "papir"}},
+      {"datum": "2026-11-17", "sat": "18:00", "crkva": "bartol", "iz_stalnog": true, "otkazana": true,
+       "napomena": "nema svete mise: župnik je na duhovnim vježbama"},
+      {"datum": "2026-11-18", "sat": "18:00", "crkva": "bartol", "iz_stalnog": true,
+       "nakana": {"tekst": "zajedničke nakane", "vrsta": "zajednicka", "objava": "papir"},
+       "uz_misu": ["krunica"]},
+      {"datum": "2026-11-19", "sat": "18:00", "crkva": "bartol", "iz_stalnog": true,
+       "nakana": {"vrsta": "bez_nakane", "objava": "nigdje"}},
+      {"datum": "2026-11-20", "sat": "17:00", "crkva": "bartol", "iz_stalnog": false,
+       "vrsta": "djecja", "napomena": "za prvopričesnike",
+       "nakana": {"tekst": "za pokojne obitelji", "vrsta": "pojedinacna"}},
+      {"datum": "2026-11-21", "sat": "08:00", "crkva": "bartol", "iz_stalnog": true,
+       "nakana": {"tekst": "za zdravlje u obitelji", "vrsta": "pojedinacna", "objava": "papir"}},
+      {"datum": "2026-11-21", "sat": "11:00", "crkva": "bartol", "iz_stalnog": false, "vrsta": "vjencana"},
+      {"datum": "2026-11-22", "sat": "08:00", "crkva": "bartol", "vrsta": "nedjeljna", "iz_stalnog": true},
+      {"datum": "2026-11-22", "sat": "09:00", "crkva": "luka", "vrsta": "obiteljska", "iz_stalnog": true},
+      {"datum": "2026-11-22", "sat": "10:30", "crkva": "bartol", "vrsta": "nedjeljna", "iz_stalnog": true,
+       "nakana": {"tekst": "za žive i pokojne župljane", "vrsta": "zajednicka", "objava": "papir"}},
+      {"datum": "2026-11-22", "sat": "15:00", "crkva": "luka", "vrsta": "nedjeljna", "jezik": "sq",
+       "iz_stalnog": true, "napomena": "misa na albanskom jeziku"}
+    ],
+    "ostali_termini": [
+      {"datum": "2026-11-19", "sat": "17:00", "do_sata": "18:00", "crkva": "bartol", "vrsta": "klanjanje"},
+      {"datum": "2026-11-21", "sat": "16:00", "crkva": "luka", "vrsta": "ispovijed", "napomena": "za krizmanike"}
+    ]
+  }
+}
+```
+
+Uz granice sezona `zimsko` 10-01 – 04-30 i `ljetno` 05-01 – 09-30 razlika prema stalnom
+rasporedu je: otkazana utorak 18:00, petak premješten s 18:00 na 17:00, dodana subota
+11:00 (vjenčanje), promijenjena vrsta nedjelja 9:00 kod sv. Luke; kapela sv. Roka nema
+misu jer je 22. 11. četvrta nedjelja.
+
 ## Liturgija i prava
 
 - **Automatski:** naziv nedjelje ili blagdana, liturgijska godina (A/B/C), boja, svetac
