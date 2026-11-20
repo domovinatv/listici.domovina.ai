@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.wrangler/
+.astro/
+.env
+.dev.vars
+.DS_Store
+# Prikupljeni uzorci tuđih župnih listića: autorski sadržaj i osobni podaci.
+# Nikad u javni repo; commita se samo izvedena analiza (docs/research/).
+data/uzorci/
+data/raw/
