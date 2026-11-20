@@ -38,7 +38,7 @@ function uSezoni(datum: string, g: GranicaSezone): boolean {
   return g.od <= g.do ? md >= g.od && md <= g.do : md >= g.od || md <= g.do;
 }
 
-function provjeriSezone(pravila: Pravilo[], sezone: Sezone | undefined): void {
+export function provjeriSezone(pravila: Pravilo[], sezone: Sezone | undefined): void {
   for (const [ime, g] of Object.entries(sezone ?? {})) {
     if (!g || !MM_DD.test(g.od) || !MM_DD.test(g.do))
       throw new GreskaRasporeda(`Granice sezone „${ime}” moraju biti {od: 'MM-DD', do: 'MM-DD'}`);
