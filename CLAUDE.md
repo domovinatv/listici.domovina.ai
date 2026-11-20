@@ -10,8 +10,9 @@ standardiziranom obrascu, preuzme kao PDF za tisak i automatski objavi na webu.
 `*.domovina.ai` projekti.
 
 **Stanje (2026-11-20): istraživanje, koda nema.** Polazište, odluke i otvorena
-pitanja su u `docs/2026-11-20-polaziste.md`. Prvo se istražuje kako listići stvarno
-izgledaju (`docs/research/`), pa tek onda nastaje plan sesija (`/todo-plan`).
+pitanja su u `docs/2026-11-20-polaziste.md`. R1 (kako listići izgledaju) je gotov:
+`docs/research/2026-11-20-zupni-listici.md` i prijedlog obrasca s JSON shemom rasporeda
+misa `docs/research/2026-11-20-obrazac-listica.md`. Sljedeće je R2 pa `/todo-plan`.
 
 ## Lanac
 `docs/handoffs/README.md`: „nastavi listiće” (ili „nastavi zadnji handoff”) znači
