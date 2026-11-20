@@ -100,6 +100,9 @@ Pitanja s vrha `S1.md`; odgovori u S1 sesiji.
 
 - **200 potvrđena** (bez „(!)”): model identiteta prihvaćen, vrata prije S4 otvorena.
 - **Administrator** (tko provjerava, s kojeg e-maila i broja): još nije određen. Treba prije S4.
+  *Dopuna 2026-11-20 (kraj S2):* administrator je vlasnik projekta. Adresa se zadaje
+  konfiguracijom `ADMIN_EMAILS` (lokalno `.dev.vars`, u S9 Cloudflare secret), nikad u
+  javnom repou; broj se ne sprema, telefonske provjere radi sa svog telefona.
 - **203:** tko piše HBK-u ili biskupiji o osobnim podacima, i kada: još nije određeno.
   Do tada 203 vrijedi kako je: osobni podaci nikad na web.
 - **205 potvrđena:** upit KS-u i HILP-u ne sada; navod + poveznica.

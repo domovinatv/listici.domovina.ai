@@ -15,7 +15,7 @@ Legenda: `[x]` gotovo · `[ ]` otvoreno · `[~]` u radu · `(!)` traži korisnik
 ## Odluke korisnika (pitanja: vrh `docs/handoffs/S1.md`)
 
 - [x] model identiteta (odluka 200) potvrđen 2026-11-20
-- [ ] (!) tko je administrator (e-mail, broj) — prije S4
+- [x] administrator: vlasnik projekta, kroz `ADMIN_EMAILS` (`.dev.vars`, u S9 secret), ne u gitu
 - [ ] (!) kontakt s HBK-om ili biskupijom o osobnim podacima (odluka 203)
 - [x] upit KS-u i HILP-u: ne sada, navod + poveznica (odluka 205)
 - [x] domena: `listici.domovina.ai`
