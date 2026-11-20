@@ -76,4 +76,4 @@ predlaže izvor, a navod je ručni unos do odluke.
 
 ## Gdje smo
 
-S0 (R2): plan napisan, koda nema. Sljedeće: S1.
+S1 gotov (d0d60a5): kostur, uvoz 1561 župe, `/zupa/<slug>`. Sljedeće: S2.

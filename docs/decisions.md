@@ -54,7 +54,7 @@ Izvor: `docs/research/2026-11-20-zupni-listici.md`, prijedlog
 Izvor: `docs/research/2026-11-20-identitet-pravo-servisi.md`. Odluke označene (!)
 su prijedlog dok ih korisnik ne potvrdi (pitanja na vrhu izvještaja i `S1.md`).
 
-200. (!) **Prvi urednik župe potvrđuje se preko službenog kontakta iz biskupijskog
+200. **Prvi urednik župe potvrđuje se preko službenog kontakta iz biskupijskog
      adresara.** Kod na e-mail župe iz adresara (bilo koja domena), a gdje e-maila nema,
      administrator zove broj iz adresara. Administrator ručno upiše URL adresara i datum.
      Razlog: e-mail na domeni biskupije je pravilo samo u Varaždinskoj (70/72) i
@@ -93,6 +93,19 @@ su prijedlog dok ih korisnik ne potvrdi (pitanja na vrhu izvještaja i `S1.md`).
 207. **Suradnja s postojećim servisima nakon pilota.** sveta-misa.org (izvoz rasporeda),
      e-zupe.com (widget/JSON), otvorena shema i iCal za ostale. Prije pilota nema
      vanjskih kontakata. Revizija: korisnik odluči drukčije.
+
+## Odgovori korisnika na pitanja R2 (2026-11-20, početak S1)
+
+Pitanja s vrha `S1.md`; odgovori u S1 sesiji.
+
+- **200 potvrđena** (bez „(!)”): model identiteta prihvaćen, vrata prije S4 otvorena.
+- **Administrator** (tko provjerava, s kojeg e-maila i broja): još nije određen. Treba prije S4.
+- **203:** tko piše HBK-u ili biskupiji o osobnim podacima, i kada: još nije određeno.
+  Do tada 203 vrijedi kako je: osobni podaci nikad na web.
+- **205 potvrđena:** upit KS-u i HILP-u ne sada; navod + poveznica.
+- **Domena:** `listici.domovina.ai` (za S9).
+- **Pilot (S10):** korisnik ima župnika na umu; odluka kasnije.
+- **207 potvrđena:** sveta-misa.org i e-zupe.com tek nakon pilota.
 
 ## S1: kostur i uvoz župa (2026-11-20)
 

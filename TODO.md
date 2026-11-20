@@ -14,20 +14,21 @@ Legenda: `[x]` gotovo · `[ ]` otvoreno · `[~]` u radu · `(!)` traži korisnik
 
 ## Odluke korisnika (pitanja: vrh `docs/handoffs/S1.md`)
 
-- [ ] (!) model identiteta (odluka 200) i tko je administrator — prije S4
+- [x] model identiteta (odluka 200) potvrđen 2026-11-20
+- [ ] (!) tko je administrator (e-mail, broj) — prije S4
 - [ ] (!) kontakt s HBK-om ili biskupijom o osobnim podacima (odluka 203)
-- [ ] (!) upit KS-u i HILP-u za puni tekst evanđelja (odluka 205)
-- [ ] (!) ime domene — prije S9
-- [ ] (!) prvi župnik za pilot — prije S10
-- [ ] (!) suradnja sa sveta-misa.org i e-zupe.com — nakon pilota (odluka 207)
+- [x] upit KS-u i HILP-u: ne sada, navod + poveznica (odluka 205)
+- [x] domena: `listici.domovina.ai`
+- [ ] (!) prvi župnik za pilot — korisnik ima kandidata, odluka prije S10
+- [x] suradnja sa sveta-misa.org i e-zupe.com: nakon pilota (odluka 207)
 
 ## F0 — temelj (ništa javno)
 
-- [ ] kostur Astro 7 + `@astrojs/cloudflare` + D1 po `../omm.domovina.ai`, `workers_dev: true`, bez `routes` → S1
-- [ ] `npm run check` = astro check + vitest, testovi bez mreže → S1
-- [ ] migracija `zupe` (slug, OIB, SBT_ID, naziv, biskupija, mjesto, koordinate iz crkve osim Google Placesa) → S1
-- [ ] uvoz iz `zupe-index.json` + `zupa/<slug>.json`, idempotentan, bilježi promijenjene i nestale slugove → S1
-- [ ] prijaviti crkve lancu: Vugrovec, Vinjani, Vidici nisu u indeksu; slug Starog Pazina i Duge Rese → S1
+- [x] kostur Astro 7 + `@astrojs/cloudflare` + D1 po `../omm.domovina.ai`, `workers_dev: true`, bez `routes` → S1
+- [x] `npm run check` = astro check + vitest, testovi bez mreže → S1
+- [x] migracija `zupe` (slug, OIB, SBT_ID, naziv, biskupija, mjesto, koordinate iz crkve osim Google Placesa) → S1
+- [x] uvoz iz `zupe-index.json` + `zupa/<slug>.json`, idempotentan, bilježi promijenjene i nestale slugove → S1
+- [x] prijaviti crkve lancu: Vugrovec, Vinjani, Vidici nisu u indeksu; slug Starog Pazina i Duge Rese → S1 (`docs/2026-11-20-biljeska-za-crkve.md`)
 - [ ] migracije profila župe, crkava, stalnog rasporeda, broja, sekcija, misa → S2
 - [ ] validacija po JSON shemi iz `docs/research/2026-11-20-obrazac-listica.md` → S2
 - [ ] tjedne mise iz stalnog rasporeda + iznimke („nema mise”, promjena s datumom) → S2
